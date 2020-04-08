@@ -6,7 +6,19 @@
   </ion-toolbar>
 </ion-header>
 
+ 
+
 <ion-content [fullscreen]="true" *ngIf="userInfo">
+  <ion-card class="cardClass">
+    <img width="70"  src="https://i.ya-webdesign.com/images/avatar-png-1.png">
+    <ion-card-header>
+      <ion-card-subtitle>Id: {{userInfo.id}}</ion-card-subtitle>
+      <ion-card-title *ngIf="userInfo.name" >Name: {{userInfo.name[0].given[0]}} {{userInfo.name[0].family}} </ion-card-title>
+      <ion-card-title class="subtitle">Type:{{userInfo.resourceType}}</ion-card-title>
+    </ion-card-header>
 
+    <ion-card-content>
+      Last Updated{{userInfo.meta.lastUpdated }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-
