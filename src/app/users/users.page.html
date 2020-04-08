@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <h1>List of patients</h1>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    
+    <ion-list *ngFor="let user of users.entry">
+      <ion-item >
+        <ion-avatar slot="start">
+          <img src="https://i.ya-webdesign.com/images/avatar-png-1.png">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{user.resource.id}}</h2>
+          <h3>{{user.resource.resourceType}}</h3>
+          <p></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+</ion-content>
