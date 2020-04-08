@@ -7,10 +7,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    
+  <ion-list *ngIf="users">
     <ion-list *ngFor="let user of users.entry">
-      <ion-item >
+      <ion-item (click)="showUser(user.resource.id)">
         <ion-avatar slot="start">
           <img src="https://i.ya-webdesign.com/images/avatar-png-1.png">
         </ion-avatar>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MedicalService } from '../medical.service';
+import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -9,7 +10,7 @@ import { MedicalService } from '../medical.service';
 export class usersPage {
   public users:any;
 
-  constructor(private medicalService: MedicalService) { }
+  constructor(private medicalService: MedicalService,private router: Router) { }
   ngOnInit() {
     this.getUsers();
   }
@@ -18,6 +19,10 @@ export class usersPage {
     this.medicalService.getUser().subscribe(response => {
       this.users=response
     })
+  }
+  showUser(id) {
+    this.medicalService.putId(id)
+    this.router.navigateByUrl('/tabs/viewUser');
   }
 
 }
