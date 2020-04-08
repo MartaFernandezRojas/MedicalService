@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MedicalService } from '../medical.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private medicalService: MedicalService) {}
+  ngOnInit(){
+    this.medicalService.getUser().subscribe(response => { 
+      console.log('response',response)
+    })
+  }
 
 }
