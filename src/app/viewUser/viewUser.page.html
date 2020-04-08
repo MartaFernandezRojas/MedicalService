@@ -16,9 +16,23 @@
       <ion-card-title *ngIf="userInfo.name" >Name: {{userInfo.name[0].given[0]}} {{userInfo.name[0].family}} </ion-card-title>
       <ion-card-title class="subtitle">Type:{{userInfo.resourceType}}</ion-card-title>
     </ion-card-header>
-
     <ion-card-content>
       Last Updated{{userInfo.meta.lastUpdated }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="medication" class="cardClass">
+    <ion-card-header>
+      <ion-card-subtitle>{{medication.id}}</ion-card-subtitle>
+      <ion-card-title class="subtitle">{{medication.medicationCodeableConcept.text}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="subheaders"><b>Doctor: </b>{{medication.requester.display}}</p>
+      <p class="subheaders"><b>Patient: </b>{{medication.subject.reference}}</p>
+      Ibuprofen is a medication in the nonsteroidal anti-inflammatory drug (NSAID) class that is used for treating pain,
+      fever, and inflammation.[7] This includes painful menstrual periods, migraines, and rheumatoid arthritis.[7] It
+      may also be used to close a patent ductus arteriosus in a premature baby.[7] It can be used by mouth or
+      intravenously.[7] It typically begins working within an hour.[7]
     </ion-card-content>
   </ion-card>
 </ion-content>

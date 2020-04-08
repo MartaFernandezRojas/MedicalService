@@ -25,4 +25,9 @@ export class MedicalService {
   showUser(id) {
     return this.http.get('http://hapi.fhir.org/baseR4/Patient/' + id + '?_pretty=true');
   }
+
+  //get information about medicines 
+  getInfoMedic(){
+    return this.http.get('http://hapi.fhir.org/baseR4/MedicationRequest/' + '1095605' + '?_pretty=true');
+  }
 }

@@ -9,11 +9,13 @@ import { MedicalService } from '../medical.service';
 export class viewUserPage {
   public IdUser: number;
   userInfo:any;
+  medication:any;
   constructor(private medicalService: MedicalService) { }
 
   ngOnInit() {
     this.IdUser = this.medicalService.getId();
     this.showDetailsUser();
+    this.getGenericMedication();
   }
   showDetailsUser() {
     this.medicalService.showUser(this.IdUser).subscribe(
@@ -22,6 +24,11 @@ export class viewUserPage {
         this.userInfo=response
         console.log(this.userInfo)
       })
+  }
+  getGenericMedication() {
+    this.medicalService.getInfoMedic().subscribe(response => {
+      this.medication = response;
+    })
   }
 
 }
