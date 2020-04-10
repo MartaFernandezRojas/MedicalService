@@ -13,6 +13,7 @@ export class usersPage {
   constructor(private medicalService: MedicalService,private router: Router) { }
   ngOnInit() {
     this.getUsers();
+    
   }
 
   getUsers() {
@@ -23,6 +24,11 @@ export class usersPage {
   showUser(id) {
     this.medicalService.putId(id)
     this.router.navigateByUrl('/tabs/viewUser');
+  }
+
+  ionViewWillEnter(){
+   console.log('hello')
+
   }
 
 }

@@ -1,13 +1,13 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="users">
+    <ion-tab-button tab="users" (click)="navigate(users)">
       <ion-icon name="list-outline"></ion-icon>
       <ion-label>Users</ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="viewUser">
-      <ion-icon name="person-outline"></ion-icon>
+      <ion-icon name="person-outline"(click)="navigate(details)"></ion-icon>
       <ion-label>Details</ion-label>
     </ion-tab-button>
 

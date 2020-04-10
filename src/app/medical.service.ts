@@ -23,6 +23,7 @@ export class MedicalService {
 
   //get detail of patients
   showUser(id) {
+    console.log('id',id)
     return this.http.get('http://hapi.fhir.org/baseR4/Patient/' + id + '?_pretty=true');
   }
 
