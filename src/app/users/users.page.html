@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      <h1>List of patients</h1>
+      List of patients
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,12 @@
 <ion-content [fullscreen]="true">
   <ion-list *ngIf="users">
     <ion-list *ngFor="let user of users">
-      <ion-item (click)="showUser(user.id)">
+      <ion-item (click)="showUser(user.id)" class="userPointer">
         <ion-avatar slot="start">
           <img src="https://i.ya-webdesign.com/images/avatar-png-1.png">
         </ion-avatar>
         <ion-label>
-          <h2>{{user.id}} -{{user.name}} </h2>
+          <h2><b>{{user.id}} -{{user.name}}</b></h2>
           <h3>{{user.email}}</h3>
           <p></p>
         </ion-label>

@@ -16,6 +16,7 @@ export class MedicalService {
   //save and get id of patient select
   putId(id) {
     this.userId = id;
+    localStorage.setItem('userId', id)
   }
   getId() {
     return this.userId;
@@ -23,11 +24,17 @@ export class MedicalService {
 
   //get detail of patients
   showUser(id) {
+    if(id==undefined){
+      id=localStorage.getItem('userId')
+    }
     return this.http.get('https://jsonplaceholder.typicode.com/users/' + id);
   }
 
   //get information about medicines 
   getInfoMedic(id) {
+    if(id==undefined){
+      id=localStorage.getItem('userId')
+    }
     return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + id);
   }
 }

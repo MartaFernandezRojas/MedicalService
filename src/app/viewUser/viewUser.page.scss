@@ -1,5 +1,9 @@
-ion-content ion-toolbar {
-  --background: translucent;
+ion-toolbar {
+  --background: rgb(43, 148, 235);
+  --color:white;
+}
+ion-item{
+  margin-top:10px
 }
 .cardClass{
   box-shadow: none !important;
