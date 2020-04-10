@@ -27,8 +27,9 @@ export class viewUserPage {
       })
   }
   getGenericMedication() {
-    this.medicalService.getInfoMedic().subscribe(response => {
+    this.medicalService.getInfoMedic(this.IdUser).subscribe(response => {
       this.medication = response;
+
     })
   }
   navigate(){

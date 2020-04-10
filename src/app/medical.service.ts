@@ -11,24 +11,23 @@ export class MedicalService {
 
   //get list of patients
   getUser() {
-    return this.http.get('http://hapi.fhir.org/baseR4/Patient?_pretty=true');
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
   //save and get id of patient select
   putId(id) {
     this.userId = id;
   }
-  getId(){
-    return  this.userId;
+  getId() {
+    return this.userId;
   }
 
   //get detail of patients
   showUser(id) {
-    console.log('id',id)
-    return this.http.get('http://hapi.fhir.org/baseR4/Patient/' + id + '?_pretty=true');
+    return this.http.get('https://jsonplaceholder.typicode.com/users/' + id);
   }
 
   //get information about medicines 
-  getInfoMedic(){
-    return this.http.get('http://hapi.fhir.org/baseR4/MedicationRequest/' + '1095605' + '?_pretty=true');
+  getInfoMedic(id) {
+    return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + id);
   }
 }

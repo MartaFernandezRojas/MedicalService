@@ -8,14 +8,14 @@
 
 <ion-content [fullscreen]="true">
   <ion-list *ngIf="users">
-    <ion-list *ngFor="let user of users.entry">
-      <ion-item (click)="showUser(user.resource.id)">
+    <ion-list *ngFor="let user of users">
+      <ion-item (click)="showUser(user.id)">
         <ion-avatar slot="start">
           <img src="https://i.ya-webdesign.com/images/avatar-png-1.png">
         </ion-avatar>
         <ion-label>
-          <h2>{{user.resource.id}}</h2>
-          <h3>{{user.resource.resourceType}}</h3>
+          <h2>{{user.id}} -{{user.name}} </h2>
+          <h3>{{user.email}}</h3>
           <p></p>
         </ion-label>
       </ion-item>

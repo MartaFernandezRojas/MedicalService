@@ -6,34 +6,35 @@
   </ion-toolbar>
 </ion-header>
 
- 
+
 
 <ion-content [fullscreen]="true" *ngIf="userInfo">
   <ion-card class="cardClass">
-    <img width="70"  src="https://i.ya-webdesign.com/images/avatar-png-1.png">
+    <img width="70" src="https://i.ya-webdesign.com/images/avatar-png-1.png">
     <ion-card-header>
       <ion-card-subtitle>Id: {{userInfo.id}}</ion-card-subtitle>
-      <ion-card-title *ngIf="userInfo.name" >Name: {{userInfo.name[0].given[0]}} {{userInfo.name[0].family}} </ion-card-title>
-      <ion-card-title class="subtitle">Type:{{userInfo.resourceType}}</ion-card-title>
+      <ion-card-title *ngIf="userInfo.name">Name: {{userInfo.name}} </ion-card-title>
+      <ion-card-title class="subtitle">Type:{{userInfo.email}}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Last Updated{{userInfo.meta.lastUpdated }}
+      <p>Phone: {{userInfo.phone }}</p>
+      <p> Address: {{userInfo.address.street}}- {{userInfo.address.city}}</p>
+      <p> Zip code: {{userInfo.address.zipcode}}</p>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="medication" class="cardClass">
-    <ion-card-header>
-      <ion-card-subtitle>{{medication.id}}</ion-card-subtitle>
-      <ion-card-title class="subtitle">{{medication.medicationCodeableConcept.text}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <p class="subheaders"><b>Doctor: </b>{{medication.requester.display}}</p>
-      <p class="subheaders"><b>Patient: </b>{{medication.subject.reference}}</p>
-      Ibuprofen is a medication in the nonsteroidal anti-inflammatory drug (NSAID) class that is used for treating pain,
-      fever, and inflammation.[7] This includes painful menstrual periods, migraines, and rheumatoid arthritis.[7] It
-      may also be used to close a patent ductus arteriosus in a premature baby.[7] It can be used by mouth or
-      intravenously.[7] It typically begins working within an hour.[7]
-    </ion-card-content>
-  </ion-card>
+  
+    <ion-list *ngIf="medication">
+      <ion-list *ngFor="let medic of medication">
+        <ion-item>
+          <ion-label>
+            <h2>{{medic.id}} -{{medic.title}} </h2>
+            <h3>{{medic.body}}</h3>
+            <p></p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
   <ion-icon name="arrow-back-outline" (click)="navigate()"></ion-icon>
 </ion-content>
