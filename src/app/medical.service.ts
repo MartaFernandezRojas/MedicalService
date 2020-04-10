@@ -5,13 +5,15 @@ import { HttpClient } from '@angular/common/http'
   providedIn: 'root'
 })
 export class MedicalService {
-
-  constructor(private http: HttpClient) { }
   public userId: any
+  private url:string
+  constructor(private http: HttpClient) {
+    this.url='https://jsonplaceholder.typicode.com'
+   }
 
   //get list of patients
   getUser() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.get(this.url+'/users');
   }
   //save and get id of patient select
   putId(id) {
@@ -23,18 +25,18 @@ export class MedicalService {
   }
 
   //get detail of patients
-  showUser(id) {
-    if(id==undefined){
-      id=localStorage.getItem('userId')
+  showUser() {
+    if(this.userId==undefined){
+      this.userId=localStorage.getItem('userId')
     }
-    return this.http.get('https://jsonplaceholder.typicode.com/users/' + id);
+    return this.http.get(this.url+'/users/' + this.userId);
   }
 
   //get information about medicines 
-  getInfoMedic(id) {
-    if(id==undefined){
-      id=localStorage.getItem('userId')
+  getInfoMedic() {
+    if(this.userId==undefined){
+      this.userId=localStorage.getItem('userId')
     }
-    return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + id);
+    return this.http.get(this.url+'/posts?userId=' + this.userId);
   }
 }

@@ -13,7 +13,6 @@ export class usersPage {
   constructor(private medicalService: MedicalService,private router: Router) { }
   ngOnInit() {
     this.getUsers();
-    
   }
 
   getUsers() {
@@ -27,7 +26,6 @@ export class usersPage {
   }
 
   ionViewWillEnter(){
-   console.log('hello')
 
   }
 

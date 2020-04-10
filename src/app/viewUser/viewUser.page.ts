@@ -14,29 +14,27 @@ export class viewUserPage {
   constructor(private medicalService: MedicalService,private router: Router) { }
 
   ngOnInit() {
-    this.IdUser = this.medicalService.getId();
     this.showDetailsUser();
     this.getGenericMedication();
-
+   
   }
   showDetailsUser() {
-    this.medicalService.showUser(this.IdUser).subscribe(
+    this.medicalService.showUser().subscribe(
       response => {
         this.userInfo=response
         console.log(this.userInfo)
       })
   }
   getGenericMedication() {
-    this.medicalService.getInfoMedic(this.IdUser).subscribe(response => {
+    this.medicalService.getInfoMedic().subscribe(response => {
       this.medication = response;
 
     })
   }
-  navigate(){
-    this.router.navigateByUrl('/tabs/users');
+  //solve refresh problem
+  ionViewWillEnter(){
+    this.showDetailsUser();
+    this.getGenericMedication();
   }
-  // ionViewWillEnter(){
-  //   this.router.navigateByUrl('/tabs/viewUser');
-  // }
 
 }

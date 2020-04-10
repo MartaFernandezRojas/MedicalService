@@ -5,6 +5,7 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: 'tabs',
+
     component: TabsPage,
     children: [
       {
@@ -14,6 +15,7 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../users/users.module').then(m => m.usersPageModule)
+
           }
         ]
       },
